@@ -47,10 +47,21 @@
             </div>
             
             <nav class="hidden md:flex space-x-8 font-semibold text-gray-600">
-                <a href="#about" class="hover:text-edu-blue">Giới thiệu</a>
-                <a href="#experts" class="hover:text-edu-blue">Chuyên gia</a>
-                <a href="#roadmap" class="hover:text-edu-blue">Lộ trình</a>
-            </nav>
+    <a href="#about" class="group relative inline-block transition-all duration-300 hover:-translate-y-1 hover:text-[#004a99]">
+        Giới thiệu
+        <span class="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-[#004a99] transition-all duration-300 group-hover:w-full"></span>
+    </a>
+    
+    <a href="#experts" class="group relative inline-block transition-all duration-300 hover:-translate-y-1 hover:text-[#004a99]">
+        Chuyên gia
+        <span class="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-[#004a99] transition-all duration-300 group-hover:w-full"></span>
+    </a>
+
+    <a href="#roadmap" class="group relative inline-block transition-all duration-300 hover:-translate-y-1 hover:text-[#004a99]">
+        Lộ trình
+        <span class="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-[#004a99] transition-all duration-300 group-hover:w-full"></span>
+    </a>
+</nav>
 
             <button onclick="openModal()" class="hidden md:block bg-edu-blue text-white px-6 py-2 rounded-full font-bold btn-hover shadow-lg">
                 Đăng ký ngay
@@ -60,7 +71,7 @@
 
     <!-- Hero Banner Section -->
     <section class="relative bg-gray-900 text-white overflow-hidden">
-        <img src="https://via.placeholder.com/1920x800?text=BANNER+SỰ+KIỆN+BOOTCAMP+AI" alt="Event Banner" class="w-full h-[450px] md:h-[650px] object-cover opacity-70">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1rxht92X9naolOyBsMJcL4t-CAdRyURhD" alt="Event Banner" class="w-full h-[450px] md:h-[650px] object-cover opacity-70">
         <div class="absolute inset-0 flex items-center justify-center banner-gradient p-4 text-center">
             <div class="max-w-4xl px-4">
                 <span class="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider mb-6 inline-block">Sự kiện đào tạo miễn phí</span>
@@ -134,7 +145,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border-b-8 border-edu-blue group">
                     <div class="relative inline-block mb-6">
-                        <img src="https://via.placeholder.com/150x150?text=Mr.+Thang" alt="Anh Nguyễn Chiến Thắng" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md group-hover:scale-105 transition-transform">
+                        <img src="https://lh3.googleusercontent.com/u/0/d/14HUrDOiNcZPj4EzbJjd2mT6nB81QeScv" alt="Anh Nguyễn Chiến Thắng" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md group-hover:scale-105 transition-transform">
                     </div>
                     <h3 class="text-xl font-bold mb-2">Anh Nguyễn Chiến Thắng</h3>
                     <p class="text-edu-blue font-bold mb-4 text-sm uppercase">Giám đốc Phát triển CNTT SHB</p>
@@ -143,7 +154,7 @@
 
                 <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border-b-8 border-edu-blue group">
                     <div class="relative inline-block mb-6">
-                        <img src="https://via.placeholder.com/150x150?text=Mr.+Hung" alt="Anh Lưu Việt Hưng" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md group-hover:scale-105 transition-transform">
+                        <img src="https://lh3.googleusercontent.com/u/0/d/1L9M3gQJWd-tFfJTzr_U7Ux0GAZp6LL2s" alt="Anh Lưu Việt Hưng" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md group-hover:scale-105 transition-transform">
                     </div>
                     <h3 class="text-xl font-bold mb-2">Anh Lưu Việt Hưng</h3>
                     <p class="text-edu-blue font-bold mb-4 text-sm uppercase">Founder & CEO LingoLab Vietnam</p>
@@ -152,7 +163,7 @@
 
                 <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border-b-8 border-edu-blue group">
                     <div class="relative inline-block mb-6">
-                        <img src="https://via.placeholder.com/150x150?text=Mr.+Huy" alt="Anh Bùi Quốc Huy" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md group-hover:scale-105 transition-transform">
+                        <img src="https://lh3.googleusercontent.com/u/0/d/1lCn_wcICsgHYHDN5Avh0PfIblqwoKjeq" alt="Anh Bùi Quốc Huy" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md group-hover:scale-105 transition-transform">
                     </div>
                     <h3 class="text-xl font-bold mb-2">Anh Bùi Quốc Huy</h3>
                     <p class="text-edu-blue font-bold mb-4 text-sm uppercase">CEO Cole.vn</p>
@@ -186,7 +197,7 @@
                         <h4 class="text-2xl font-bold text-edu-blue mb-4">AI hỗ trợ học & hiểu môn học</h4>
                         <p class="text-gray-600 mb-4">Hướng dẫn cách biến AI thành "gia sư" riêng, giúp tóm tắt bài giảng, giải đáp thắc mắc và lập kế hoạch tự học hiệu quả cho mọi môn học chuyên ngành.</p>
                         <div class="flex items-center text-sm font-semibold text-edu-blue">
-                             <i class="far fa-clock mr-2"></i> 18:00 - 20:30
+                             <i class="far fa-clock mr-2"></i> 14:00 - 17:00
                         </div>
                     </div>
                 </div>
@@ -201,7 +212,7 @@
                         <h4 class="text-2xl font-bold text-edu-blue mb-4">AI hỗ trợ nghiên cứu & thuyết trình</h4>
                         <p class="text-gray-600 mb-4">Làm chủ các công cụ hỗ trợ viết luận văn, tiểu luận chuyên nghiệp. Tự động hóa việc tìm kiếm tài liệu tham khảo và tạo Slide thuyết trình 10/10.</p>
                         <div class="flex items-center text-sm font-semibold text-edu-blue">
-                             <i class="far fa-clock mr-2"></i> 19:30 - 21:30
+                             <i class="far fa-clock mr-2"></i> 20:00 - 22:00
                         </div>
                     </div>
                 </div>
@@ -216,7 +227,7 @@
                         <h4 class="text-2xl font-bold text-edu-blue mb-4">AI định hướng sự nghiệp tương lai</h4>
                         <p class="text-gray-600 mb-4">Phân tích xu hướng thị trường lao động bằng AI, tối ưu hóa hồ sơ cá nhân (CV/Portfolio) và xây dựng lộ trình thăng tiến sớm ngay từ khi còn là sinh viên.</p>
                         <div class="flex items-center text-sm font-semibold text-edu-blue">
-                             <i class="far fa-clock mr-2"></i> 19:30 - 21:30
+                             <i class="far fa-clock mr-2"></i> 20:00 - 22:00
                         </div>
                     </div>
                 </div>
@@ -255,10 +266,10 @@
                 <div>
                     <h5 class="text-white font-bold mb-6 uppercase text-sm tracking-widest">Liên hệ Cole.vn</h5>
                     <p class="text-sm mb-2"><i class="fas fa-phone mr-2"></i> 086 981 0635</p>
-                    <p class="text-sm mb-2"><i class="fas fa-globe mr-2"></i> www.cole.vn</p>
+                    <p  class="text-sm mb-2"><i class="fas fa-globe mr-2"></i> www.cole.vn</p>
                     <div class="flex space-x-4 mt-6">
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/www.cole.vn" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@coletv2911" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -299,7 +310,7 @@
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-gray-500 uppercase mb-2 tracking-widest">Khóa sinh viên</label>
-                    <input type="text" name="student_class" placeholder="Ví dụ: K20, K21, K22..." class="w-full px-5 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-edu-blue focus:ring-4 focus:ring-blue-50 outline-none transition" required>
+                    <input type="text" name="student_class" placeholder="Ví dụ: D22, D23, D24..." class="w-full px-5 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-edu-blue focus:ring-4 focus:ring-blue-50 outline-none transition" required>
                 </div>
                 
                 <button type="submit" id="submitBtn" class="w-full bg-edu-blue text-white py-4 rounded-xl font-bold text-lg btn-hover shadow-lg mt-4 uppercase tracking-widest">
@@ -381,7 +392,7 @@
         function showSuccessNotification() {
             const successMsg = document.createElement('div');
             successMsg.className = "fixed bottom-10 right-10 bg-green-600 text-white px-8 py-4 rounded-2xl shadow-2xl z-[100] flex items-center animate-bounce";
-            successMsg.innerHTML = `<i class="fas fa-check-circle mr-3 text-2xl"></i> <div><b class="block">Thành công!</b> Dữ liệu đã được lưu vào Google Sheet.</div>`;
+            successMsg.innerHTML = `<i class="fas fa-check-circle mr-3 text-2xl"></i> <div><b class="block">Thành công!</b>BTC sẽ gửi email xác nhận cho bạn!</div>`;
             document.body.appendChild(successMsg);
             
             setTimeout(() => {
