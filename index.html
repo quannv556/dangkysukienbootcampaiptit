@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp AI Ứng dụng trong học tập & phát triển | PTIT x Cole</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .bg-edu-blue { background-color: #004a99; }
+        .text-edu-blue { color: #004a99; }
+        .btn-hover { transition: all 0.3s ease; }
+        .btn-hover:hover { transform: translateY(-2px); shadow: 0 10px 15px -3px rgba(0, 74, 153, 0.3); }
+        
+        .modal-overlay { 
+            background: rgba(0, 0, 0, 0.7); 
+            display: none; 
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active-modal { 
+            display: flex !important; 
+            opacity: 1;
+        }
+        .banner-gradient { background: linear-gradient(rgba(0, 74, 153, 0.7), rgba(0, 74, 153, 0.5)); }
+        
+        html { scroll-behavior: smooth; }
+
+        /* Hiệu ứng loading cho nút */
+        .btn-loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Logos -->
+    <header class="bg-white py-4 shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center space-x-4 justify-center md:justify-start w-full md:w-auto mb-4 md:mb-0">
+                <img src="https://lh3.googleusercontent.com/u/0/d/1uKxc7FZXnOIU5RJyp17kw0i4IF7CRW3A" class="h-10 md:h-12 object-contain">
+                <div class="h-8 w-px bg-gray-300"></div>
+                <img src="https://lh3.googleusercontent.com/u/0/d/147O0N5x8usehrABZzQ3j5qnhqfJUY0Qy" alt="Cole.vn Logo" class="h-10 md:h-12 object-contain">
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 font-semibold text-gray-600">
+                <a href="#about" class="hover:text-edu-blue">Giới thiệu</a>
+                <a href="#experts" class="hover:text-edu-blue">Chuyên gia</a>
+                <a href="#roadmap" class="hover:text-edu-blue">Lộ trình</a>
+            </nav>
+
+            <button onclick="openModal()" class="hidden md:block bg-edu-blue text-white px-6 py-2 rounded-full font-bold btn-hover shadow-lg">
+                Đăng ký ngay
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="relative bg-gray-900 text-white overflow-hidden">
+        <img src="https://via.placeholder.com/1920x800?text=BANNER+SỰ+KIỆN+BOOTCAMP+AI" alt="Event Banner" class="w-full h-[450px] md:h-[650px] object-cover opacity-70">
+        <div class="absolute inset-0 flex items-center justify-center banner-gradient p-4 text-center">
+            <div class="max-w-4xl px-4">
+                <span class="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider mb-6 inline-block">Sự kiện đào tạo miễn phí</span>
+                <h1 class="text-3xl md:text-6xl font-extrabold mb-6 leading-tight">
+                    Bootcamp AI: Ứng dụng trong học tập & phát triển
+                </h1>
+                <p class="text-lg md:text-xl mb-10 opacity-90 leading-relaxed">
+                    Nâng tầm kỹ năng học tập và nghiên cứu với sự hỗ trợ của Trí tuệ nhân tạo (AI). Chương trình đặc biệt dành riêng cho sinh viên.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <button onclick="openModal()" class="bg-white text-edu-blue px-10 py-4 rounded-xl font-black text-lg shadow-2xl btn-hover uppercase">
+                        Đăng ký tham gia miễn phí
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-edu-blue mb-6 border-l-4 border-yellow-400 pl-4">Về Chương Trình</h2>
+                    <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+                        Chương trình <strong>Bootcamp AI Ứng dụng trong học tập & phát triển</strong> là sự hợp tác chiến lược giữa <strong>Viện ERIPT (PTIT)</strong> và <strong>Cole.vn</strong>. Mục tiêu là rút ngắn khoảng cách giữa công nghệ và học thuật, giúp sinh viên làm chủ các công cụ AI hiện đại nhất.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start bg-blue-50 p-4 rounded-lg">
+                            <i class="fas fa-check-circle text-edu-blue mt-1 mr-3 text-xl"></i> 
+                            <span>Kiến thức thực chiến, ứng dụng được ngay vào việc học trên lớp.</span>
+                        </div>
+                        <div class="flex items-start bg-blue-50 p-4 rounded-lg">
+                            <i class="fas fa-check-circle text-edu-blue mt-1 mr-3 text-xl"></i> 
+                            <span>Đội ngũ diễn giả là những chuyên gia đầu ngành có nhiều kinh nghiệm.</span>
+                        </div>
+                        <div class="flex items-start bg-blue-50 p-4 rounded-lg">
+                            <i class="fas fa-check-circle text-edu-blue mt-1 mr-3 text-xl"></i> 
+                            <span>Hỗ trợ cấp chứng nhận hoàn thành sau chương trình.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-2 gap-6">
+                    <div class="bg-gray-50 border border-gray-100 p-8 rounded-3xl text-center shadow-sm">
+                        <div class="text-4xl font-black text-edu-blue mb-2">03</div>
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Buổi học chuyên sâu</div>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-100 p-8 rounded-3xl text-center shadow-sm">
+                        <div class="text-4xl font-black text-edu-blue mb-2">0đ</div>
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Chi phí tham gia</div>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-100 p-8 rounded-3xl text-center shadow-sm">
+                        <div class="text-4xl font-black text-edu-blue mb-2">Linh hoạt</div>
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Online & Offline</div>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-100 p-8 rounded-3xl text-center shadow-sm">
+                        <div class="text-4xl font-black text-edu-blue mb-2">DRL</div>
+                        <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Cộng điểm rèn luyện</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experts Section -->
+    <section id="experts" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-edu-blue mb-4">Đội Ngũ Chuyên Gia</h2>
+            <p class="text-gray-500 mb-16">Những người sẽ đồng hành và dẫn dắt bạn trong hành trình chinh phục AI</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border-b-8 border-edu-blue group">
+                    <div class="relative inline-block mb-6">
+                        <img src="https://via.placeholder.com/150x150?text=Mr.+Thang" alt="Anh Nguyễn Chiến Thắng" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md group-hover:scale-105 transition-transform">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Anh Nguyễn Chiến Thắng</h3>
+                    <p class="text-edu-blue font-bold mb-4 text-sm uppercase">Giám đốc Phát triển CNTT SHB</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Founder Cộng đồng Mì AI – chuyên gia hàng đầu về truyền cảm hứng và đào tạo AI thực chiến tại Việt Nam.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border-b-8 border-edu-blue group">
+                    <div class="relative inline-block mb-6">
+                        <img src="https://via.placeholder.com/150x150?text=Mr.+Hung" alt="Anh Lưu Việt Hưng" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md group-hover:scale-105 transition-transform">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Anh Lưu Việt Hưng</h3>
+                    <p class="text-edu-blue font-bold mb-4 text-sm uppercase">Founder & CEO LingoLab Vietnam</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">AI Engineer & Data Scientist với nhiều năm kinh nghiệm xây dựng các giải pháp trí tuệ nhân tạo cho Startup.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border-b-8 border-edu-blue group">
+                    <div class="relative inline-block mb-6">
+                        <img src="https://via.placeholder.com/150x150?text=Mr.+Huy" alt="Anh Bùi Quốc Huy" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md group-hover:scale-105 transition-transform">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Anh Bùi Quốc Huy</h3>
+                    <p class="text-edu-blue font-bold mb-4 text-sm uppercase">CEO Cole.vn</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Chuyên gia định hướng kỹ năng số và đào tạo nhân sự chất lượng cao trong lĩnh vực công nghệ thông tin.</p>
+                </div>
+            </div>
+            
+            <button onclick="openModal()" class="mt-12 bg-edu-blue text-white px-10 py-3 rounded-full font-bold btn-hover shadow-lg">
+                <i class="fas fa-paper-plane mr-2"></i> Đăng ký học cùng chuyên gia
+            </button>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-edu-blue mb-4">Lộ Trình Học Tập</h2>
+                <div class="h-1 w-20 bg-yellow-400 mx-auto mb-4"></div>
+                <p class="text-gray-500 max-w-2xl mx-auto italic">Nội dung được thiết kế sát thực tế, tập trung vào các kỹ năng sinh viên cần nhất hiện nay.</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto grid gap-8">
+                <div class="flex flex-col md:flex-row gap-8 items-stretch">
+                    <div class="bg-edu-blue text-white p-8 rounded-3xl flex flex-col justify-center items-center text-center md:w-1/4">
+                        <div class="text-sm font-bold opacity-75 mb-2">BUỔI 01</div>
+                        <div class="text-3xl font-black">16/01</div>
+                        <div class="mt-4 bg-white/20 px-4 py-1 rounded text-xs">OFFLINE</div>
+                    </div>
+                    <div class="bg-blue-50 p-8 rounded-3xl md:w-3/4 flex flex-col justify-center">
+                        <h4 class="text-2xl font-bold text-edu-blue mb-4">AI hỗ trợ học & hiểu môn học</h4>
+                        <p class="text-gray-600 mb-4">Hướng dẫn cách biến AI thành "gia sư" riêng, giúp tóm tắt bài giảng, giải đáp thắc mắc và lập kế hoạch tự học hiệu quả cho mọi môn học chuyên ngành.</p>
+                        <div class="flex items-center text-sm font-semibold text-edu-blue">
+                             <i class="far fa-clock mr-2"></i> 18:00 - 20:30
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-stretch">
+                    <div class="bg-edu-blue text-white p-8 rounded-3xl flex flex-col justify-center items-center text-center md:w-1/4">
+                        <div class="text-sm font-bold opacity-75 mb-2">BUỔI 02</div>
+                        <div class="text-3xl font-black">20/01</div>
+                        <div class="mt-4 bg-white/20 px-4 py-1 rounded text-xs">ONLINE</div>
+                    </div>
+                    <div class="bg-blue-50 p-8 rounded-3xl md:w-3/4 flex flex-col justify-center">
+                        <h4 class="text-2xl font-bold text-edu-blue mb-4">AI hỗ trợ nghiên cứu & thuyết trình</h4>
+                        <p class="text-gray-600 mb-4">Làm chủ các công cụ hỗ trợ viết luận văn, tiểu luận chuyên nghiệp. Tự động hóa việc tìm kiếm tài liệu tham khảo và tạo Slide thuyết trình 10/10.</p>
+                        <div class="flex items-center text-sm font-semibold text-edu-blue">
+                             <i class="far fa-clock mr-2"></i> 19:30 - 21:30
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8 items-stretch">
+                    <div class="bg-edu-blue text-white p-8 rounded-3xl flex flex-col justify-center items-center text-center md:w-1/4">
+                        <div class="text-sm font-bold opacity-75 mb-2">BUỔI 03</div>
+                        <div class="text-3xl font-black">23/01</div>
+                        <div class="mt-4 bg-white/20 px-4 py-1 rounded text-xs">ONLINE</div>
+                    </div>
+                    <div class="bg-blue-50 p-8 rounded-3xl md:w-3/4 flex flex-col justify-center">
+                        <h4 class="text-2xl font-bold text-edu-blue mb-4">AI định hướng sự nghiệp tương lai</h4>
+                        <p class="text-gray-600 mb-4">Phân tích xu hướng thị trường lao động bằng AI, tối ưu hóa hồ sơ cá nhân (CV/Portfolio) và xây dựng lộ trình thăng tiến sớm ngay từ khi còn là sinh viên.</p>
+                        <div class="flex items-center text-sm font-semibold text-edu-blue">
+                             <i class="far fa-clock mr-2"></i> 19:30 - 21:30
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 bg-edu-blue text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">Nhanh tay giữ chỗ ngay hôm nay!</h2>
+            <p class="text-xl mb-12 opacity-80 max-w-2xl mx-auto italic">Số lượng có hạn để đảm bảo chất lượng đào tạo và tương tác cùng diễn giả.</p>
+            <button onclick="openModal()" class="bg-yellow-400 text-gray-900 px-12 py-5 rounded-2xl font-black text-xl shadow-2xl btn-hover uppercase tracking-tighter">
+                Đăng ký tham gia ngay (Miễn phí)
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-500 py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-2 h-8 bg-edu-blue"></div>
+                        <span class="text-white font-black text-xl tracking-tighter">PTIT x COLE</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">Cung cấp các chương trình đào tạo kỹ năng số, AI và dữ liệu cho thế hệ trẻ Việt Nam, đồng hành cùng sinh viên trên con đường sự nghiệp.</p>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-6 uppercase text-sm tracking-widest">Liên hệ PTIT</h5>
+                    <p class="text-sm mb-2"><i class="fas fa-university mr-2"></i> Viện ERIPT - Học viện BCVT</p>
+                    <p class="text-sm mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Nguyễn Trãi, Hà Đông, Hà Nội</p>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-6 uppercase text-sm tracking-widest">Liên hệ Cole.vn</h5>
+                    <p class="text-sm mb-2"><i class="fas fa-phone mr-2"></i> 086 981 0635</p>
+                    <p class="text-sm mb-2"><i class="fas fa-globe mr-2"></i> www.cole.vn</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pt-12 border-t border-gray-800 text-xs tracking-widest">
+                &copy; 2025 BOOTCAMP AI FOR STUDENT. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <!-- REGISTRATION MODAL (Popup) -->
+    <div id="regModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl w-full max-w-md overflow-hidden relative shadow-2xl transform transition-all duration-300 scale-95 opacity-0" id="modalContent">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            
+            <div class="bg-edu-blue p-8 text-white text-center">
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-user-edit text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold">Thông Tin Đăng Ký</h3>
+                <p class="text-sm opacity-80 mt-1">Bootcamp AI: Học tập & Phát triển</p>
+            </div>
+
+            <!-- Form với thuộc tính name để gửi dữ liệu -->
+            <form id="bookingForm" name="google-sheet" class="p-8 space-y-5">
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2 tracking-widest">Họ và tên</label>
+                    <input type="text" name="fullname" placeholder="Nhập họ tên của bạn" class="w-full px-5 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-edu-blue focus:ring-4 focus:ring-blue-50 outline-none transition" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2 tracking-widest">Số điện thoại</label>
+                    <input type="tel" name="phone" placeholder="Ví dụ: 0987xxxxxx" class="w-full px-5 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-edu-blue focus:ring-4 focus:ring-blue-50 outline-none transition" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2 tracking-widest">Email sinh viên</label>
+                    <input type="email" name="email" placeholder="username@student.ptit.edu.vn" class="w-full px-5 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-edu-blue focus:ring-4 focus:ring-blue-50 outline-none transition" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2 tracking-widest">Khóa sinh viên</label>
+                    <input type="text" name="student_class" placeholder="Ví dụ: K20, K21, K22..." class="w-full px-5 py-3 rounded-xl border border-gray-100 bg-gray-50 focus:bg-white focus:border-edu-blue focus:ring-4 focus:ring-blue-50 outline-none transition" required>
+                </div>
+                
+                <button type="submit" id="submitBtn" class="w-full bg-edu-blue text-white py-4 rounded-xl font-bold text-lg btn-hover shadow-lg mt-4 uppercase tracking-widest">
+                    Hoàn tất đăng ký
+                </button>
+                <p class="text-[10px] text-gray-400 text-center">
+                    Bằng việc nhấn nút, bạn đồng ý với điều khoản tham gia chương trình.
+                </p>
+            </form>
+        </div>
+    </div>s
+
+    <!-- Script Handling Logic -->
+    <script>
+        // --- CẤU HÌNH GOOGLE SHEET ---
+        // Dán link Web App của bạn vào đây sau khi triển khai Apps Script
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwO4fcqVnbaSbQJENVnYDCOqlNhYauYMYNnNTe6_dJcqSxD554pkiXpvYiQkwPUw4_G/exec'; 
+
+        const modal = document.getElementById('regModal');
+        const modalContent = document.getElementById('modalContent');
+        const form = document.forms['google-sheet'];
+        const submitBtn = document.getElementById('submitBtn');
+
+        function openModal() {
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('active-modal');
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.remove('active-modal');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) closeModal();
+        }
+
+        // --- LOGIC GỬI DỮ LIỆU ---
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // Trạng thái đang gửi
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Đang xử lý...';
+            submitBtn.classList.add('btn-loading');
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form)
+            })
+            .then(response => {
+                submitBtn.innerHTML = 'Hoàn tất đăng ký';
+                submitBtn.classList.remove('btn-loading');
+                
+                // Hiển thị thông báo thành công
+                showSuccessNotification();
+                
+                // Đóng modal và reset form
+                form.reset();
+                closeModal();
+            })
+            .catch(error => {
+                console.error('Lỗi!', error.message);
+                submitBtn.innerHTML = 'Hoàn tất đăng ký';
+                submitBtn.classList.remove('btn-loading');
+                alert('Có lỗi xảy ra, vui lòng thử lại sau hoặc liên hệ hotline!');
+            });
+        });
+
+        function showSuccessNotification() {
+            const successMsg = document.createElement('div');
+            successMsg.className = "fixed bottom-10 right-10 bg-green-600 text-white px-8 py-4 rounded-2xl shadow-2xl z-[100] flex items-center animate-bounce";
+            successMsg.innerHTML = `<i class="fas fa-check-circle mr-3 text-2xl"></i> <div><b class="block">Thành công!</b> Dữ liệu đã được lưu vào Google Sheet.</div>`;
+            document.body.appendChild(successMsg);
+            
+            setTimeout(() => {
+                successMsg.style.transition = "opacity 0.5s";
+                successMsg.style.opacity = "0";
+                setTimeout(() => successMsg.remove(), 500);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
